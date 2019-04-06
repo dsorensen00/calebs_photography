@@ -12,9 +12,14 @@ export default()=>{
 
     return(
         <>
-            <h1>THIS IS CONTACT</h1>
+            <div>
+                <h1 className="sticky-margin">Contact</h1>
+            </div>
+            
+
+
             <Button>CONTACT</Button>
-            <button>HELLO</button>
+            <Button>HELLO</Button>
         </>
     );
 }
