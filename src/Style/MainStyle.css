@@ -26,12 +26,10 @@ hr{
     height:3px;
 }
 
+
+
 /*////////RIGHT UNDER NAV/////////////RIGHT UNDER NAV//////////RIGHT UNDER NAV//*/
 
-body{
-    background-color:#233237;
-    color:aliceblue;
-}
 .gogglefont{
     font-family: 'Rubik', sans-serif;
 }
@@ -60,23 +58,99 @@ body{
 }
 
 
-/*/////////HOME MY EXPERIENCE//////////////HOME MY EXPERIENCE/////////////////////////////*/
+
+/*/////////HOME/////////////// MY EXPERIENCE//////////////HOME /////////////MY EXPERIENCE/////////////////////////////*/
+.homeMain{
+   background-color:#d9534f;
+   color:aliceblue;
+}
 
 .title2{
     color:#984B43;
     padding:15px;
     text-decoration: underline #EAC67A;
 }
+
 .topper2{
-    padding-top:50px;
+    padding-top:20px;
+}
+
+.cont-back{
+    background-color: #233237;
+    border-radius: 9px;
+    margin-top:15px;
+    padding: 45px;
 }
 
 
 
 
 /*///////////////////*/
-/*///////////////////*/
-/*///////////////////*/
+/*////////CONTACT////////////////CONTACT///////////CONTACT///////////CONTACT///////////CONTACT///////////CONTACT///////////CONTACT//////*/
+.contactMain{
+    background-image: url("../Components/Images/mountains.jpg");
+    height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+    background-color: rgba(240, 240, 240, 0.5);
+    border-radius: 5px;
+    top: 150px;
+}
+
+.inputs{
+    background-color: rgba(240, 240, 240, 0.555);
+    border:none;
+    border-bottom: solid 3px;
+    border-radius: 5px;
+    margin:2px;
+    color:#984B43;
+    padding:5px;
+    padding-left:15px;
+
+}
+
+input:focus{
+    outline:none;
+}
+
+input:hover{
+    background-color: aliceblue;
+}
+
+textarea:focus{
+    outline:none;
+}
+
+textarea:hover{
+    background-color: aliceblue;
+}
+
+
+.formfield{
+    padding:15px;
+}
+
+::placeholder{
+    color: #984B43;
+}
+
+.btn-hover{
+    border: solid #984B43;
+    color: #984B43;
+    background-color: rgba(240, 240, 240, 0.555);
+    border-radius: 15px;
+}
+
+.btn-hover:hover{
+    background: #984B43;
+    color: white;
+}
+/*///////Gallery//////////////Gallery////////////Gallery////////////Gallery////////////Gallery////////////Gallery//////////*/
 
 .parallax { 
     background-image: url("../Components/Images/walsun.jpeg");
@@ -95,21 +169,14 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .parallax3 { 
-    background-image: url("../Components/Images/owen.jpeg");
-    height: 800px;
-    width: 100%vw; 
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .parallax4 { 
-    background-image: url("../Components/Images/calebsbeautifulface.jpg");
-    height: 720px;
-    width: 100%vw; 
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
+
+
+  /*/////////FOOTER//////////FOOTER//////////////////////FOOTER////*/
+
+.foot{
+    margin:0px !important;
+    padding: 15px;
+    background-color: #233237;
+    padding:45px;
+}

@@ -45,13 +45,15 @@ class App extends Component {
         </div>
 
         <Routing />
-        <footer className="text-center">
+        
+        <footer className="text-center foot">
           <Anchor href="/">HOME</Anchor>
           <Anchor href="/contact">CONTACT</Anchor>
           
                     
                     
         </footer>
+        
       </div>
     );
   }
