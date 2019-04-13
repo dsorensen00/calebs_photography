@@ -15,6 +15,8 @@ export default class extends Component{
     state = {
         users : [],
     }
+
+  
     
     fetchUsers = async () => {
         await fetch(`${this.apiURL}/admin`) 
@@ -23,11 +25,11 @@ export default class extends Component{
             return (
             <div className="container">
                 <div className="col-lg-6">
-                    <div>Request ID: {element._id}</div>
-                    <div>Status: </div>
-                    <div>Name: {element.name}</div>
-                    <div>Email: {element.email}</div>
-                    <div>Phone: {element.phone}</div>
+                    <div><strong>Request ID:</strong> <span className="colors">{element._id}</span></div>
+                    <div><strong>Status: </strong>{element.status}</div>
+                    <div><strong>Name:</strong> {element.name}</div>
+                    <div><strong>Email:</strong> {element.email}</div>
+                    <div><strong>Phone:</strong> {element.phone}</div>
                     
                 </div>
                 <div className="container col-lg-6 ">
@@ -35,6 +37,11 @@ export default class extends Component{
                     <br/>
                     <div>Request: {element.request}</div>
                 </div>
+                <br/>
+                <form className="text-right">
+                    <button type="submit" className="btn btn-danger">HASTA LA VISTA
+                    </button>
+                </form>
                 <br/>
                 <hr/>
             </div>)
@@ -46,18 +53,27 @@ export default class extends Component{
     }
 
     componentDidMount(){
-        this.fetchUsers();
+        this.fetchUsers()
    // console.log(this.state)
     }
+    
+    
+    
+    //ADD AN EVENT LISTENER TO LISTEN FOR A FORM SUBMIT, WHICH WILL
+    //BE OUR DELETE BUTTON, THEN EXECUTE OUR DELETE!
+
+
+
+
 
     render(){
         
 
         return(
             <>
-                <div className="container">
+                <div className="container form">
                     <div className="row">
-                        <input type="button" onClick={this.fetchUsers} className="btn btn-primary toppy"/>
+                        <button type="button" onClick={this.fetchUsers} className="btn btn-primary toppy">Refresh</button>
                         
                     </div>
                     <div className="">

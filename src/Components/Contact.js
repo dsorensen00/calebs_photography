@@ -5,11 +5,12 @@ import React, {Component} from 'react'
 export default class extends Component {
 
     state={
-        name: "",
-        phone: "",
-        email: "",
-        subject: "",
-        request:""
+        name: '',
+        status: '',
+        phone: '',
+        email: '',
+        subject: '',
+        request:''
     }
 
     handleChange = (event) => {
@@ -41,7 +42,7 @@ export default class extends Component {
                     <form className="container col-sm-10 col-md-9 col-lg-7 justify-content-around gogglefont toppy"
                         onSubmit={this.handleSubmit}
                     >
-                        <div className="row justify-content-around formfield">
+                        <div className="row justify-content-around formfield form">
                             <input type="text" 
                                 name="name"
                                 placeholder="Name" 
