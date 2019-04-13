@@ -8,7 +8,8 @@ export default class extends Component {
         name: "",
         phone: "",
         email: "",
-        password: ""
+        subject: "",
+        request:""
     }
 
     handleChange = (event) => {
@@ -61,15 +62,15 @@ export default class extends Component {
                                 className="col-sm-6 inputs" 
                                 onChange={this.handleChange}
                             />
-                            <input type="password" 
-                                name="password"
-                                placeholder="Password" 
+                            <input type="text" 
+                                name="subject"
+                                placeholder="Subject" 
                                 className="col-sm-5 inputs" 
                                 onChange={this.handleChange}
                             />
                         </div>
                         <div className="row justify-content-around formfield">
-                            <textarea placeholder="How can we help?" className="col-sm-8 inputs" />
+                            <textarea name="request" placeholder="How can we help?" className="col-sm-8 inputs" onChange={this.handleChange}/>
                         </div>
                         <div className="row justify-content-center"> 
                             <input type="submit"

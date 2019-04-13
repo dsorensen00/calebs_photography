@@ -14,13 +14,7 @@ export default class extends Component{
 
     state = {
         users : [],
-        name : '',
-        _id:'',
-        phone:'',
-        email:'',
-        password:''
     }
-
     
     fetchUsers = async () => {
         await fetch(`${this.apiURL}/admin`) 
@@ -28,11 +22,21 @@ export default class extends Component{
             .then( data => data.map(element => {
             return (
             <div className="container">
-                <div>
+                <div className="col-lg-6">
                     <div>Request ID: {element._id}</div>
+                    <div>Status: </div>
                     <div>Name: {element.name}</div>
                     <div>Email: {element.email}</div>
+                    <div>Phone: {element.phone}</div>
+                    
                 </div>
+                <div className="container col-lg-6 ">
+                    <div>Subject: {element.subject}</div>
+                    <br/>
+                    <div>Request: {element.request}</div>
+                </div>
+                <br/>
+                <hr/>
             </div>)
         }))
             .then(components => this.setState({ users : components}))
