@@ -16,14 +16,27 @@ export default class extends Component{
         users : [],
     }
 
-  
+    deleteMe = this.state.users
+
+    delReq = (e) => {
+        console.log('event',e)
+        fetch(`${this.apiURL}/admin`, {
+            method:'DELETE',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({_id: e})
+        })
+        
+
+    }
     
     fetchUsers = async () => {
         await fetch(`${this.apiURL}/admin`) 
             .then( response =>  response.json() )
-            .then( data => data.map(element => {
+            .then( data => data.map((element,index) => {
             return (
-            <div className="container">
+            <div key={index} className="container">
                 <div className="col-lg-6">
                     <div><strong>Request ID:</strong> <span className="colors">{element._id}</span></div>
                     <div><strong>Status: </strong>{element.status}</div>
@@ -38,15 +51,13 @@ export default class extends Component{
                     <div>Request: {element.request}</div>
                 </div>
                 <br/>
-                <form className="text-right">
-                    <button type="submit" className="btn btn-danger">HASTA LA VISTA
-                    </button>
-                </form>
+                    <button type="button" name={element._id} onClick={e => this.delReq(e.target.name)} className="btn btn-danger">HASTA LA VISTA</button>
                 <br/>
                 <hr/>
             </div>)
         }))
-            .then(components => this.setState({ users : components}))
+            .then(components => this.setState({users: components}))
+            // .then(components=>document.getElementById('momma').innerHTML=components)
             .catch(function (error) {
             console.log(error)
             });
@@ -67,17 +78,19 @@ export default class extends Component{
 
 
     render(){
-        
+
 
         return(
             <>
                 <div className="container form">
                     <div className="row">
                         <button type="button" onClick={this.fetchUsers} className="btn btn-primary toppy">Refresh</button>
-                        
+                        {this.state.user}
                     </div>
-                    <div className="">
+                    <div className="" id="momma">
                         {this.state.users}
+                        {console.log(this.state.users)}
+                        
                     </div>
                 </div>
             </>

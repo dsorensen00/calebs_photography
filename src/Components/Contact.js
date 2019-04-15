@@ -6,7 +6,7 @@ export default class extends Component {
 
     state={
         name: '',
-        status: '',
+        status:'New',
         phone: '',
         email: '',
         subject: '',
