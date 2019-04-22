@@ -69,14 +69,6 @@ export default class extends Component{
     }
     
     
-    
-    //ADD AN EVENT LISTENER TO LISTEN FOR A FORM SUBMIT, WHICH WILL
-    //BE OUR DELETE BUTTON, THEN EXECUTE OUR DELETE!
-
-
-
-
-
     render(){
 
 
