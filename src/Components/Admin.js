@@ -3,8 +3,7 @@ import React, {Component} from 'react'
 
 export default class extends Component{
 
-    // then(onfulfilled?: (value: Response) => Response | PromiseLike<Response>, onrejected?: (reason: any) => PromiseLike<never>): Promise<Response>
-    // The callback to execute when the Promise is resolved.
+
     
     //mailchimp to take registered users and email them newsletter
     
@@ -81,7 +80,7 @@ export default class extends Component{
                     </div>
                     <div className="" id="momma">
                         {this.state.users}
-                        {console.log(this.state.users)}
+                        
                         
                     </div>
                 </div>
