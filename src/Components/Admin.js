@@ -13,12 +13,12 @@ export default class extends Component{
 
     state = {
         users : [],
+        status: ""
     }
 
     deleteMe = this.state.users
 
     delReq = (e) => {
-        console.log('event',e)
         fetch(`${this.apiURL}/admin`, {
             method:'DELETE',
             headers:{
@@ -29,6 +29,19 @@ export default class extends Component{
         
 
     }
+
+    updateUser = (e, iD) =>{
+        fetch(`${this.apiURL}/admin`, {
+            method:'PATCH',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                _id: iD,
+                status: e.target.value
+            })
+        })
+    }
     
     fetchUsers = async () => {
         await fetch(`${this.apiURL}/admin`) 
@@ -37,17 +50,26 @@ export default class extends Component{
             return (
             <div key={index} className="container">
                 <div className="col-lg-6">
-                    <div><strong>Request ID:</strong> <span className="colors">{element._id}</span></div>
-                    <div><strong>Status: </strong>{element.status}</div>
                     <div><strong>Name:</strong> {element.name}</div>
+                    <div>
+                        <strong>Status: </strong><br/>
+                        <form>   
+                            <select onChange={e=>this.updateUser(e, element._id )}>
+                                <option value="">{element.status}</option>
+                                <option value="New" name="New">New</option>
+                                <option value="Pending" name="Pending">Pending</option>
+                                <option value="Done" name="Done">Done</option>
+                            </select>
+                        </form>
+                    </div>
                     <div><strong>Email:</strong> {element.email}</div>
                     <div><strong>Phone:</strong> {element.phone}</div>
                     
                 </div>
                 <div className="container col-lg-6 ">
-                    <div>Subject: {element.subject}</div>
+                    <div><strong>Subject: </strong>{element.subject}</div>
                     <br/>
-                    <div>Request: {element.request}</div>
+                    <div><strong>Request: </strong>{element.request}</div>
                 </div>
                 <br/>
                     <button type="button" name={element._id} onClick={e => this.delReq(e.target.name)} className="btn btn-danger">HASTA LA VISTA</button>
@@ -64,7 +86,6 @@ export default class extends Component{
 
     componentDidMount(){
         this.fetchUsers()
-   // console.log(this.state)
     }
     
     
@@ -74,11 +95,7 @@ export default class extends Component{
         return(
             <>
                 <div className="container form">
-                    <div className="row">
-                        <button type="button" onClick={this.fetchUsers} className="btn btn-primary toppy">Refresh</button>
-                        {this.state.user}
-                    </div>
-                    <div className="" id="momma">
+                    <div className="topper" id="momma">
                         {this.state.users}
                         
                         
